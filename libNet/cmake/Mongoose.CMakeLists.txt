@@ -1,0 +1,17 @@
+add_library(mongoose STATIC mongoose.c)
+add_library(${PROJECT_NAME}::mongoose ALIAS mongoose)
+target_include_directories(mongoose PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
+if(ENABLE_SSL_TESTS)
+    # Enable mongoose SSL
+    target_compile_definitions(mongoose PUBLIC MG_ENABLE_SSL)
+    target_link_libraries(mongoose PRIVATE OpenSSL::SSL)
+endif()
+
+# cannot figure out why install(Targets ...) causes the build
+# to fail! Therefore, I'm installing the header & lib manually.
+install(FILES ${mongoose_SOURCE_DIR}/mongoose.h
+  DESTINATION include/mongoose)
+
+install(FILES ${mongoose_BINARY_DIR}/libmongoose.a
+  DESTINATION lib)
