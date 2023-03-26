@@ -1,6 +1,8 @@
-This is a dummy application (or a template). It serves as an example of how to
-build a monolithic C++ application with multiple libraries embedded as part of
-the application's root directory.
+This is a template/example that can be used to build a monolithic C++ application with multiple libraries embedded as part of
+the application's root directory. It includes unit tests and code coverage using llvm-cov.
+
+![write_up(1)](https://user-images.githubusercontent.com/70146464/227763852-1f6ceccc-0734-4502-81d1-fa36aac68e5e.png)
+
 
 # Required packages
 
